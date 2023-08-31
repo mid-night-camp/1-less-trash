@@ -8,5 +8,23 @@ module.exports = {
     } else {
       return null;
     }
+  },
+
+  registerUser: async function(userData) {
+    // userData에는 loginId, pw, region 
+    // clear, sum, probability 기본값으로 초기화
+    try {
+      const userId = await userRepository.createUser(
+        userData.loginId,
+        userData.pw,
+        userData.region,
+        0,
+        0,
+        0.0
+      );
+      return userId;
+    } catch (error) {
+      throw error;
+    }
   }
 };
