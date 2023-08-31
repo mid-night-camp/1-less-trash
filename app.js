@@ -12,4 +12,12 @@ app.use(express.json());
 
 // route 연결
 
+const apiRouter=require('./src/routes/api-route');
+const itemRouter=require('./src/routes/item-route');
+const gameRouter= require('./src/routes/game-route');
+app.use('/',apiRouter);
+app.use('/items',itemRouter);
+app.use('/game', gameRouter);
+
+
 app.listen(8888, () => console.log('Listening on port 8888'));
