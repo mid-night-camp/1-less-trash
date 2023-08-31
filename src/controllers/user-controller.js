@@ -24,7 +24,7 @@ module.exports = {
       const userId = await userService.registerUser(userData);
       res.json({ success: true, message: '회원가입 성공', userId });
     } catch (error) {
-      res.json({ success: false, message: '회원가입 실패' });
+      res.json({ success: false, message: error.message });
     }
   }
 };
